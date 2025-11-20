@@ -11,6 +11,9 @@ import {
 // Pages
 import Home from "./pages/Home.jsx"
 import About from "./pages/About.jsx"
+import Faq from './pages/help/Faq.jsx';
+import Contact from './pages/help/Contact.jsx';
+import NotFound from './pages/NotFound.jsx'
 
 // Layouts
 import RootLayout from './layouts/RootLayout.jsx';
@@ -23,9 +26,12 @@ const route = createBrowserRouter(
       <Route index element={<Home />} />{/*By mentioning index inside a path, it is the index of the path related to the parent */}
       <Route path="about" element={<About />} />
       <Route path='help' element={<HelpLayout />}>
-        <Route path='faq'/>  
-        <Route path='contact'/>  
+        <Route path='faq' element={<Faq/>}/>  
+        <Route path='contact' element={<Contact/>}/>  
       </Route>
+
+      {/* The Route below will take to the page that does not match with the route above */}
+      <Route path='*' element={<NotFound />} />
     </Route>
   )
 )
