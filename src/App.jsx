@@ -14,10 +14,13 @@ import About from "./pages/About.jsx"
 import Faq from './pages/help/Faq.jsx';
 import Contact from './pages/help/Contact.jsx';
 import NotFound from './pages/NotFound.jsx'
+import Careers, {careerLoader} from './pages/careers/Careers.jsx'
+import CareeerDetails, { careerDetailsLoader } from './pages/careers/CareeerDetails.jsx';
 
 // Layouts
 import RootLayout from './layouts/RootLayout.jsx';
-import HelpLayout from './layouts/HelpLayout.jsx'
+import HelpLayout from './layouts/HelpLayout.jsx';
+import CareersLayout from './layouts/CareersLayout.jsx';
 
 const route = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +31,18 @@ const route = createBrowserRouter(
       <Route path='help' element={<HelpLayout />}>
         <Route path='faq' element={<Faq/>}/>  
         <Route path='contact' element={<Contact/>}/>  
+      </Route>
+      <Route path='careers' element={<CareersLayout/>}>
+        <Route 
+          index 
+          element={<Careers/>}
+          loader={careerLoader}// Passing the loader function
+          />
+          <Route 
+            path=':id'//Here, using a colon before the param will convert the path into a variable
+            element={<CareeerDetails />}
+            loader={careerDetailsLoader}
+          />
       </Route>
 
       {/* The Route below will take to the page that does not match with the route above */}
