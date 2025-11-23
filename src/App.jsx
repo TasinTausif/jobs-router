@@ -14,8 +14,9 @@ import About from "./pages/About.jsx"
 import Faq from './pages/help/Faq.jsx';
 import Contact from './pages/help/Contact.jsx';
 import NotFound from './pages/NotFound.jsx'
-import Careers, {careerLoader} from './pages/careers/Careers.jsx'
+import Careers, { careerLoader } from './pages/careers/Careers.jsx'
 import CareeerDetails, { careerDetailsLoader } from './pages/careers/CareeerDetails.jsx';
+import CareersError from './pages/careers/CareersError.jsx';
 
 // Layouts
 import RootLayout from './layouts/RootLayout.jsx';
@@ -25,24 +26,28 @@ import CareersLayout from './layouts/CareersLayout.jsx';
 const route = createBrowserRouter(
   createRoutesFromElements(
     // The element in parent will act as a layout for the child elements
-    <Route path='/' element={<RootLayout/>}>
+    <Route path='/' element={<RootLayout />}>
       <Route index element={<Home />} />{/*By mentioning index inside a path, it is the index of the path related to the parent */}
       <Route path="about" element={<About />} />
       <Route path='help' element={<HelpLayout />}>
-        <Route path='faq' element={<Faq/>}/>  
-        <Route path='contact' element={<Contact/>}/>  
+        <Route path='faq' element={<Faq />} />
+        <Route path='contact' element={<Contact />} />
       </Route>
-      <Route path='careers' element={<CareersLayout/>}>
-        <Route 
-          index 
-          element={<Careers/>}
+      <Route
+        path='careers'
+        element={<CareersLayout />}
+        errorElement={<CareersError />}>{/* Any error inside the child route will catch this element */}
+        <Route
+          index
+          element={<Careers />}
           loader={careerLoader}// Passing the loader function
-          />
-          <Route 
-            path=':id'//Here, using a colon before the param will convert the path into a variable
-            element={<CareeerDetails />}
-            loader={careerDetailsLoader}
-          />
+        />
+        <Route
+          path=':id'//Here, using a colon before the param will convert the path into a variable
+          element={<CareeerDetails />}
+          loader={careerDetailsLoader}
+        // errorElement={<CareersError/>} //When any specific error element need to introduce
+        />
       </Route>
 
       {/* The Route below will take to the page that does not match with the route above */}
@@ -73,6 +78,6 @@ export default function App() {
     // </BrowserRouter>
 
     // In the first approach, BrowserRouter was created from before and Routes were passed individually. But in this approach, RouteProvider takes router param that takes a self created BrowserRouter
-    <RouterProvider router={route}/>
+    <RouterProvider router={route} />
   );
 }

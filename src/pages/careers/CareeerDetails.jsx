@@ -23,5 +23,10 @@ export const careerDetailsLoader = async({params}) => {
     const {id} = params//Destructuring the params as given in the path
     const res = await fetch('http://localhost:4000/careers/' + id)
 
+    // ok is a REST API property that gives true if the response is found and false if not found
+    if(!res.ok){
+      throw Error("Could not find the job details!");
+    }
+
     return res.json()
 }
