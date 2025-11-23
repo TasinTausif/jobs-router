@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom"
+import Breadcrumbs from "../components/Breadcrumbs"
 
 export default function RootLayout() {
     return (
@@ -11,6 +12,7 @@ export default function RootLayout() {
                     <NavLink to='help'>Help</NavLink>
                     <NavLink to='careers'>Careers</NavLink>
                 </nav>
+                <Breadcrumbs />
             </header>
             <main>
                 {/* Outlet matches the parent route's route name with the child's route name and renders the content. Basically if current route is a parent route and it's nested routes content will be showed*/}
