@@ -12,7 +12,7 @@ import {
 import Home from "./pages/Home.jsx"
 import About from "./pages/About.jsx"
 import Faq from './pages/help/Faq.jsx';
-import Contact from './pages/help/Contact.jsx';
+import Contact, { contactAction } from './pages/help/Contact.jsx';
 import NotFound from './pages/NotFound.jsx'
 import Careers, { careerLoader } from './pages/careers/Careers.jsx'
 import CareeerDetails, { careerDetailsLoader } from './pages/careers/CareeerDetails.jsx';
@@ -31,7 +31,11 @@ const route = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path='help' element={<HelpLayout />}>
         <Route path='faq' element={<Faq />} />
-        <Route path='contact' element={<Contact />} />
+        <Route 
+          path='contact' 
+          element={<Contact />} 
+          action={contactAction}
+          />
       </Route>
       <Route
         path='careers'
