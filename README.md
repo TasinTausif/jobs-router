@@ -1,18 +1,63 @@
-# React + Vite
+# 💼 Jobs Router
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React project built to deeply practice **React Router v6+** using real-world routing patterns such as loaders, actions, dynamic routes, breadcrumbs, redirects, and full error handling.  
+A mock REST API is powered by **JSON-Server**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **`useLoaderData()`** – Fetch data before rendering UI  
+- **`useParams()`** – Access dynamic route parameters  
+- **`useRouteError()`** – Handle loader/action/route errors  
+- **`useActionData()`** – Receive form submission results  
+- **`redirect()`** – Return redirects from actions  
+- **`<Navigate />`** – Component-based navigation  
+- **`<Form />`** – React Router's native form handling  
+- **`throw new Response()`** – API-style error throwing  
+- **Breadcrumbs with `useMatches()` + route `handle`**  
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🌐 API Layer (JSON-Server)
+- Built-in REST API using `json-server`  
+- All data loaded through route loaders  
+- Custom API **404 handling**  
+- Separate UI-level and API-level error pages  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📄 Pages & Routes
+- Home  
+- Job List  
+- Job Details  
+- Edit Job (with action + redirect)  
+- Breadcrumb Navigation  
+- 404 Not Found Page  
+- API Error Page  
+
+---
+
+## 🛠️ Tech Stack
+- **React + Vite**  
+- **React Router DOM**  
+- **Tailwind CSS**  
+- **JSON-Server**  
+
+---
+
+## ▶️ Getting Started
+1. Install dependencies
+   ```bash
+   npm install
+
+2. Start the mock API (JSON-Server)
+    ```bash
+      npx json-server api/db.json --port 5000
+
+3. Run the app
+    ```bash
+    npm run dev
+
+4. Open in browser
+    Visit → http://localhost:5173
