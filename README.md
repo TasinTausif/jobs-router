@@ -19,6 +19,31 @@ A mock REST API is powered by **JSON-Server**.
 
 ---
 
+## 📸 Screenshots
+
+### Home Page
+<img src="./screenshots/home.png" alt="Home Page" />
+
+### About Us
+<img src="./screenshots/about.png" alt="About Us Page" />
+
+### Help
+<img src="./screenshots/help.png" alt="Help Page" />
+
+### Faq
+<img src="./screenshots/faq.png" alt="Faq Page" />
+
+### Contact Us
+<img src="./screenshots/contactUs.png" alt="Contact Us" />
+
+### Career
+<img src="./screenshots/career.png" alt="Career Page" />
+
+### Job Post
+<img src="./screenshots/jobPost.png" alt="Job Post" />
+
+---
+
 ## 🌐 API Layer (JSON-Server)
 - Built-in REST API using `json-server`  
 - All data loaded through route loaders  
@@ -53,7 +78,7 @@ A mock REST API is powered by **JSON-Server**.
 
 2. Start the mock API (JSON-Server)
     ```bash
-      npx json-server api/db.json --port 5000
+      npx json-server data/db.json --port 4000
 
 3. Run the app
     ```bash
